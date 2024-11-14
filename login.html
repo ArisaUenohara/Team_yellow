@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ログインページ</title>
+    <script src="/static/login.js"></script>
+</head>
+<body>
+    <h2>ログイン</h2>
+    <form id="loginForm" onsubmit="return login()">
+        <label for="username">ユーザーID:</label>
+        <input type="text" id="username" required>
+        
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" required>
+        
+        <button type="submit">ログイン</button>
+    </form>
+    <p id="message"></p>
+</body>
+</html>
