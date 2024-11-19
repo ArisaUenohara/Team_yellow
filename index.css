@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+body {}
+
+header {}
+
+.choose_box>div {
+  display: none;
+}
+
+.choose_box>div.active {
+  display: block;
+}
+
+h3 {
+  text-align: center;
+}
+h4 {
+  text-align:center;
+}
+ul {
+  width: 100%;
+  max-width: 750px;
+  margin: 3% auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+li {
+  width: 60%;
+  border: 1px solid #666666;
+  margin: 3%;
+  border-radius: 30px;
+}
+
+li:hover {
+  width:50%;
+}
+
+a {
+  width: 100%;
+  padding: 5%;
+  display: block;
+  cursor: pointer;
+}
+
+before {
+  width:40%;
+  text-align:center;
+}
+
+footer {}
