@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>回答リスト</title>
+    <script src="/static/admin_dashboard.js"></script>
+</head>
+<body>
+    <h2>回答リスト（管理者のみ）</h2>
+
+    <label for="classSelect">クラスを選択:</label>
+    <select id="classSelect" onchange="fetchResponses()">
+        <option value="class1">クラス1</option>
+        <option value="class2">クラス2</option>
+        <option value="class3">クラス3</option>
+    </select>
+    
+    <div id="response-list">
+        <!-- クラスごとの回答リストをここに表示 -->
+    </div>
+</body>
+</html>
