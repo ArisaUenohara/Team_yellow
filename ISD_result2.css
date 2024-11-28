@@ -1,0 +1,122 @@
+/* 全体のリセット */
+body, h1, h2, h3, p, ul, li, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 背景とコンテナ */
+body {
+  background-color: #fdf3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+/* ヘッダー */
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #ff6f61;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #888;
+}
+
+/* 結果のアイコンとタイトル */
+.result-icon {
+  margin: 20px 0;
+}
+
+.flame-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: radial-gradient(circle, #ff6f61, #ff8b73);
+  border-radius: 50%;
+}
+
+.result-title {
+  font-size: 24px;
+  color: #ff6f61;
+  margin-top: 10px;
+}
+
+/* 説明 */
+.description {
+  font-size: 16px;
+  color: #555;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* 詳細 */
+.details h3 {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details li {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* フッター */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.share-btn {
+  background-color: #ff6f61;
+  color: white;
+}
+
+.share-btn:hover {
+  background-color: #ff8b73;
+}
+
+.retry-btn {
+  background-color: #ddd;
+  color: #555;
+}
+
+.retry-btn:hover {
+  background-color: #ccc;
+}
+
+
