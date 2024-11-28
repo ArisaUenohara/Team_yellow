@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>管理者ダッシュボード</title>
+    <script src="/static/admin_dashboard.js"></script>
+</head>
+<body>
+    <h2>管理者ダッシュボード</h2>
+    <h3>クラスコードの作成</h3>
+    <form id="classCodeForm" onsubmit="return createClassCode()">
+        <label for="class_code">新しいクラスコード:</label>
+        <input type="text" id="class_code" required>
+        <button type="submit">作成</button>
+    </form>
+    <p id="message"></p>
+
+    <h3>現在のクラスコード一覧</h3>
+    <ul id="classCodeList"></ul>
+</body>
+</html>
