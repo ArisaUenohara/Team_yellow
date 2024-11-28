@@ -1,0 +1,29 @@
+function registerUser() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const classCode = document.getElementById("class_code").value;
+
+    fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, class_code: classCode })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messageElement = document.getElementById("message");
+        if (data.error) {
+            messageElement.textContent = `エラー: ${data.error}`;
+        } else {
+            messageElement.textContent = "登録が完了しました！ログインページへ移動します。";
+            setTimeout(() => {
+                window.location.href = "/";  // ログインページへリダイレクト
+            }, 2000);
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("message").textContent = "エラーが発生しました。";
+    });
+
+    return false;  // フォームのリロードを防止
+}
