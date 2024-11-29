@@ -51,4 +51,12 @@ before {
   text-align:center;
 }
 
+.result {
+  display: none; /* 結果ページを非表示にする */
+}
+
+.result.active {
+  display: block; /* 必要な結果ページを表示する */
+}
+
 footer {}
