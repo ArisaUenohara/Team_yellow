@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ページ</title>
+  <link rel="stylesheet" href="adminpage.css">
+  <script src="adminpage.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>管理者ページ</h1>
+
+    <!-- ユーザー診断結果表示 -->
+    <h2>ユーザーの診断結果</h2>
+    <table id="userResults">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>タイプ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ユーザーの診断結果がここに表示されます -->
+      </tbody>
+    </table>
+
+    <!-- グループ作成ボタン -->
+    <button id="createGroupsBtn">グループ作成</button>
+
+    <!-- 作成されたグループの表示 -->
+    <h2>作成されたグループ</h2>
+    <table id="groupResults">
+      <thead>
+        <tr>
+          <th>グループ</th>
+          <th>メンバー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- グループ情報がここに表示されます -->
+      </tbody>
+    </table>
+
+    <!-- グループ結果公開ボタン -->
+    <button id="publishResultsBtn">グループ結果を公開</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

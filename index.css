@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-body {}
-
-header {}
 
 .choose_box>div {
   display: none;
@@ -35,9 +32,6 @@ li {
   border-radius: 30px;
 }
 
-li:hover {
-  width:50%;
-}
 
 a {
   width: 100%;
@@ -46,7 +40,7 @@ a {
   cursor: pointer;
 }
 
-before {
+a.before {
   width:40%;
   text-align:center;
 }
@@ -54,9 +48,3 @@ before {
 .result {
   display: none; /* 結果ページを非表示にする */
 }
-
-.result.active {
-  display: block; /* 必要な結果ページを表示する */
-}
-
-footer {}
