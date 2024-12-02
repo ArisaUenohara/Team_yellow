@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者ページ</title>
+    <link rel="stylesheet" href="adminpage.css">
+</head>
+<body>
+    <header>
+        <h1>管理者ページ</h1>
+    </header>
+    <main>
+        <section class="search-section">
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="コード名を入力してください" required>
+                <button type="submit">検索</button>
+            </form>
+        </section>
+        <section class="content-section">
+            <h2>管理コンテンツ</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>ユーザーID</th>
+                        <th>診断結果</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>サンプルコード</td>
+                        <td></td>
+                        <td><button class="delete-btn">削除</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>デモコード</td>
+                        <td></td>
+                        <td><button class="delete-btn">削除</button></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 管理者ページ</p>
+    </footer>
+</body>
+</html>
