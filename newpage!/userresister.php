@@ -9,14 +9,16 @@
 <body>
     <h2>新規登録</h2>
     <form action="signUp.php" method="post">
+        
+        <label for="name">名前</label>
+        <input type="name" id="name" name="name" required><br>
+
         <label for="username">ユーザーID:</label>
         <input type="email" id="username" name="email" required><br>
 
         <label for="password">パスワード:</label>
         <input type="password" id="password" name="password" required><br>
-
-        <label for="class_code">クラスコード:</label>
-        <input type="text" id="class_code" name="class_code" required><br>
+        <p>※英数字8文字以上</p>
 
         <button type="submit" value="新規登録">登録</button>
     </form>

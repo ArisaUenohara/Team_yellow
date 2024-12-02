@@ -4,8 +4,9 @@ require_once('config.php');
 try {
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $pdo->exec("create table if not exists userDeta(
+  $pdo->exec("create table if not exists userData(
       id int not null auto_increment primary key,
+      name varchar(255),
       email varchar(255),
       password varchar(255),
       created timestamp not null default current_timestamp
@@ -25,10 +26,11 @@ if (preg_match('/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i', $_POST['password']
   echo 'パスワードは半角英数字をそれぞれ1文字以上含んだ8文字以上で設定してください。';
   return false;
 }
+$name=$_POST['name'];
 //登録処理
 try {
-  $stmt = $pdo->prepare("insert into userDeta(email, password) value(?, ?)");
-  $stmt->execute([$email, $password]);
+  $stmt = $pdo->prepare("insert into userData(name, email, password) values(?, ?, ?)");
+  $stmt->execute([$name, $email, $password]);
   echo '登録完了';
 } catch (\Exception $e) {
   echo '登録済みのメールアドレスです。';

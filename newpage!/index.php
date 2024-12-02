@@ -28,6 +28,7 @@ if (isset($_SESSION['EMAIL'])) {
         <div class="login-box">
             <h1>ログイン</h1>
             <form action="login.php" method="post">
+
                 <div class="form-group">
                     <label for="username">ユーザーID</label>
                     <input type="email" id="username" name="email" required>
@@ -38,11 +39,6 @@ if (isset($_SESSION['EMAIL'])) {
                     <input type="password" id="password" name="password" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="class_code">クラスコード:</label>
-                    <input type="text" id="class_code" name="class_code" required><br>
-                </div>
-                
                 <button type="submit" class="login-button">ログイン</button>
             </form>
             <p><a href="userresister.php">新規登録</a></p>

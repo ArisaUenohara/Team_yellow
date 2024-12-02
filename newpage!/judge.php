@@ -11,6 +11,7 @@
 <body>
   <header>
   </header>
+  
   <div class="choose_box">
     <div id="q_1" class="active">
       <h3>1</h3>
