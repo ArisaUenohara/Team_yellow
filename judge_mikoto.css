@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+
+.choose_box>div {
+  display: none;
+}
+
+.choose_box>div.active {
+  display: block;
+}
+
+body {
+  background-color: beige;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+h4 {
+  text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.btn {
+  display: block;
+  position: relative;
+padding:  2em 4em;
+margin: 30px auto;
+width: 30%;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #87befd;
+  border: dashed 1px #FFF;
+  transition: .4s;
+}
+
+.btn:hover {
+  border: dotted 1px #FFF 
+  background: #668ad8;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+}
+
+
+
+.before{
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+}
+
+.before:hover {
+  background: #b3e1ff;
+}
+.result {
+  display: none; /* 結果ページを非表示にする */
+}
