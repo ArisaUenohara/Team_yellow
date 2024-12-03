@@ -9,9 +9,54 @@
     <div class="title">マイページ</div>
     
     <div class="button-container">
-      <button class="button" onclick="window.location.href='result.html'">結果</button>
-      <button class="button" onclick="window.location.href='index.html'">グループ分け</button>
-      <button class="button" onclick="window.location.href='judge.html'">診断ページ</button>
-    </div>
+      <button id="resultButton" class="button" disabled>結果</button>
+      <button id="groupButton" class="button" disabled>グループ分け</button>
+      <button id="judgeButton" class="button" disabled>診断ページ</button>
+      
+      <div class="class-input-container">
+          <label for="classInput">クラスを入力してください：</label>
+          <input type="text" id="classInput" class="class-input" placeholder="クラス名を入力">
+          <div id="errorMessage" class="error-message"></div>
+      </div>
+  </div>
+
+  <script>
+      const classInput = document.getElementById('classInput');
+      const resultButton = document.getElementById('resultButton');
+      const groupButton = document.getElementById('groupButton');
+      const judgeButton = document.getElementById('judgeButton');
+      const errorMessage = document.getElementById('errorMessage');
+
+      classInput.addEventListener('input', function() {
+          const classValue = this.value.trim();
+          
+          if (classValue) {
+              resultButton.disabled = false;
+              groupButton.disabled = false;
+              judgeButton.disabled = false;
+              errorMessage.textContent = '';
+          } else {
+              resultButton.disabled = true;
+              groupButton.disabled = true;
+              judgeButton.disabled = true;
+          }
+      });
+
+      function navigateTo(page) {
+          const classValue = classInput.value.trim();
+          
+          if (!classValue) {
+              errorMessage.textContent = 'クラス名を入力してください！';
+              return;
+          }
+          
+          localStorage.setItem('userClass', classValue);
+          window.location.href = page;
+      }
+
+      resultButton.addEventListener('click', () => navigateTo('result.html'));
+      groupButton.addEventListener('click', () => navigateTo('index.html'));
+      judgeButton.addEventListener('click', () => navigateTo('judge.html'));
+  </script>
 </body>
 </html>
