@@ -1,38 +1,62 @@
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .title {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 150px;
-        }
-        .button {
-            width: 250px;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-    
+      body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+.title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 150px;
+    align-items: center;
+}
+.button {
+    width: 250px;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: #45a049;
+}
+.button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.class-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.class-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
