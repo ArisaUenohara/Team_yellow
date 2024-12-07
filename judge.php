@@ -1,3 +1,16 @@
+<script>
+  // クラス名をlocalStorageから取得
+const userClass = localStorage.getItem('userClass');
+
+if (userClass) {
+    // クラス名が存在する場合
+    console.log(`クラス名: ${userClass}`); // コンソールに表示
+} else {
+    // クラス名が保存されていない場合
+    console.log('クラス名が保存されていません。');
+}
+</script>
+
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +24,7 @@
 <body>
   <header>
   </header>
-  
+  <div id="output"></div>
   <div class="choose_box">
     <div id="q_1" class="active">
       <h3>1</h3>

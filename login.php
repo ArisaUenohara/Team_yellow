@@ -12,7 +12,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 //DB内でPOSTされたメールアドレスを検索
 try {
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
-  $stmt = $pdo->prepare('select * from userData where email = ?');
+  $stmt = $pdo->prepare('select * from userData2 where email = ?');
   $stmt->execute([$_POST['email']]);
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
 } catch (\Exception $e) {
@@ -29,24 +29,25 @@ if (!isset($row['email'])) {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;
 }
-//パスワード確認後sessionにメールアドレスを渡す
+// パスワード確認後sessionにメールアドレスを渡す
 if (password_verify($_POST['password'], $row['password'])) {
-  session_regenerate_id(true); //session_idを新しく生成し、置き換える
+  session_regenerate_id(true); // session_idを新しく生成し、置き換える
   $_SESSION['EMAIL'] = $row['email'];
-  $_SESSION['user'] = [
-    'id' => $row['id'],
-    'name' => $row['name'],
-    'email' => $row['email']
-];
-
-   // セッション情報の確認
-   echo '<pre>';
-   print_r($_SESSION);
-   echo '</pre>';
+  $_SESSION['ID'] = $row['id']; //サーバーからidを保存できないかな・・？
+  $_SESSION['NAME']=$row['name'];//サーバーからidを保存
+  $_SESSION['IS_ADMIN'] = $row['is_admin']; // is_admin情報をセッションに保存
 
   echo 'ログインしました';
-  header('Location:mypage.php');//マイページに移動
+
+  // 管理者か一般ユーザーかを判定してリダイレクト
+  if ($row['is_admin'] == 1) {
+    header('Location: adminpage.php'); // 管理者ページにリダイレクト
+  } else {
+    header('Location: mypage.php'); // 一般ユーザーの診断ページにリダイレクト
+  }
+  exit;
 } else {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;
 }
+?>

@@ -1,44 +1,62 @@
-<?php
-session_start();
-
-// セッションからユーザー情報を取得
-if (!isset($_SESSION['user'])) {
-    // ログインしていない場合、ログインページにリダイレクト
-    header('Location: index.php');
-    exit;
-}
-
-$user = $_SESSION['user'];
-
-session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <link rel="stylesheet" href="mypage.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイページ</title>
-    <link rel="stylesheet" href="mypage.css">
+    
 </head>
 <body>
-    <div class="container">
-        <h1>マイページ</h1>
-        
-        <!-- ユーザー情報 -->
-        <div class="user-info">
-            <p><strong>名前:</strong> <?php echo htmlspecialchars($user['name']); ?></p>
-            <p><strong>ユーザーID (メール):</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-        </div>
+    <div class="title">マイページ</div>
+    
+    <div class="button-container">
+      <button id="resultButton" class="button" disabled>結果</button>
+      <button id="groupButton" class="button" disabled>グループ分け</button>
+      <button id="judgeButton" class="button" disabled>診断ページ</button>
+      
+      <div class="class-input-container">
+          <label for="classInput">クラスを入力してください：</label>
+          <input type="text" id="classInput" class="class-input" placeholder="クラス名を入力">
+          <div id="errorMessage" class="error-message"></div>
+      </div>
+  </div>
 
-        <!-- クラス入力フォーム -->
-        <form id="class-form" method="POST" action="judge.php">
-            <label for="class-input">クラスを入力してください:</label>
-            <input type="text" id="class-input" name="class" required>
-            <button type="submit">タイプ診断へ</button>
-        </form>
-    </div>
-    <script src="mypage.js"></script>
+  <script>
+      const classInput = document.getElementById('classInput');
+      const resultButton = document.getElementById('resultButton');
+      const groupButton = document.getElementById('groupButton');
+      const judgeButton = document.getElementById('judgeButton');
+      const errorMessage = document.getElementById('errorMessage');
+
+      classInput.addEventListener('input', function() {
+          const classValue = this.value.trim();
+          
+          if (classValue) {
+              resultButton.disabled = false;
+              groupButton.disabled = false;
+              judgeButton.disabled = false;
+              errorMessage.textContent = '';
+          } else {
+              resultButton.disabled = true;
+              groupButton.disabled = true;
+              judgeButton.disabled = true;
+          }
+      });
+
+      function navigateTo(page) {
+          const classValue = classInput.value.trim();
+          
+          if (!classValue) {
+              errorMessage.textContent = 'クラス名を入力してください！';
+              return;
+          }
+          
+          localStorage.setItem('userClass', classValue);
+          window.location.href = page;
+      }
+
+      resultButton.addEventListener('click', () => navigateTo('result.php'));
+        groupButton.addEventListener('click', () => navigateTo('grouping.php'));
+        judgeButton.addEventListener('click', () => navigateTo('judge.php'));
+  </script>
 </body>
 </html>

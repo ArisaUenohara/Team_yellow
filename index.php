@@ -12,6 +12,7 @@ if (isset($_SESSION['EMAIL'])) {
   exit;
 }
 
+
  ?>
 
 <!DOCTYPE html>

@@ -1,6 +1,14 @@
 <?php
 require_once('config.php');
 
+session_start();
+
+// 管理者かどうかを確認
+if (!isset($_SESSION['IS_ADMIN']) || $_SESSION['IS_ADMIN'] != 1) {
+    header('Location: login.php');
+    exit;
+}
+
 try {
 	// データベースへ接続する
 	$handle = new PDO(DSN, DB_USER, DB_PASS);
@@ -9,7 +17,7 @@ try {
 	$handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	// SQL文の準備
-	$sql = "SELECT * FROM userData";
+	$sql = "SELECT * FROM userData2 WHERE is_admin = 0";
 	
 	// SQL文の実行
 	$stmt = $handle->query($sql);
@@ -26,8 +34,6 @@ try {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -42,7 +48,7 @@ try {
     </header>
     <main>
         <section class="search-section">
-            <form action="/search" method="get">
+            <form action="" method="get">
                 <input type="text" name="codename" placeholder="コード名を入力してください" required>
                 <button type="submit">検索</button>
             </form>
@@ -62,14 +68,18 @@ try {
                 <!-- ここでPHPのforeachを使って結果をループさせる -->
                  <?php foreach ($result as $row):?>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></td>
                         <td><?php echo htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8');?></td>
                         <td></td>
-                        <td><button class="delete-btn">削除</button></td>
+                        <td><form method="get" action="delete.php"><button class="delete-btn">削除</button></form></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <div class="box">
+                <button>グループ分け</button>
+                <p><a href ="logout.php">ログアウト</a></p>
+            </div>
         </section>
     </main>
     <footer>
