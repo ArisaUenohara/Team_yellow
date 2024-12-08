@@ -464,7 +464,7 @@ if (userClass) {
       <a class="before" href="#q_19">前のページに戻る</a>
     </div>
   </div>
-
+  <p><a href ="logout.php">ログアウト</a></p>
 
   <footer>
   </footer>

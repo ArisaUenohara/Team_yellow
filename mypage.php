@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// セッションからユーザー情報を取得
+if (!isset($_SESSION['EMAIL'])) {
+    // ログインしていない場合、ログインページにリダイレクト
+    header('Location: index.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
   <link rel="stylesheet" href="mypage.css">
@@ -18,6 +29,7 @@
           <input type="text" id="classInput" class="class-input" placeholder="クラス名を入力">
           <div id="errorMessage" class="error-message"></div>
       </div>
+      <button onclick="location.href ='logout.php'">ログアウト</button>
   </div>
 
   <script>
@@ -54,7 +66,7 @@
           window.location.href = page;
       }
 
-      resultButton.addEventListener('click', () => navigateTo('result.php'));
+      resultButton.addEventListener('click', () => navigateTo('con-result.php'));
         groupButton.addEventListener('click', () => navigateTo('grouping.php'));
         judgeButton.addEventListener('click', () => navigateTo('judge.php'));
   </script>
