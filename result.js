@@ -32,3 +32,17 @@
    document.getElementById("result-title").textContent = "結果が見つかりません";
    document.getElementById("result-description").textContent = "正しいURLからアクセスしてください。";
  }
+ if (resultType && results[resultType]) {
+    const resultTitle = document.getElementById("result_title");
+    const bearElement = document.querySelector(".bear");
+    
+    // タイトルとクマに結果タイプに応じたクラスを追加
+    resultTitle.classList.add(`title-type-${resultType}`);
+    bearElement.classList.add(`bear-type-${resultType}`);
+    
+    resultTitle.textContent = results[resultType].title;
+    document.getElementById("result-description").textContent = results[resultType].description;
+  } else {
+    document.getElementById("result_title").textContent = "結果が見つかりません";
+    document.getElementById("result-description").textContent = "正しいURLからアクセスしてください。";
+  }
