@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5DC; /* Light beige background */
+}
+
+header {
+  background-color: #D4C4B7; /* Soft beige header */
+  color: #4A4A4A; /* Darker gray text for contrast */
+  text-align: center;
+  padding: 1.2rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 500;
+}
+
+main {
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-section,
+.content-section {
+  margin-bottom: 2.5rem;
+  background-color: #FFF9F0; /* Very light beige */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.search-section form {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.search-section input[type="text"] {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #E8DFD8; /* Light beige border */
+  border-radius: 6px;
+  width: 300px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.search-section input[type="text"]:focus {
+  outline: none;
+  border-color: #C4B0A1; /* Darker beige on focus */
+  box-shadow: 0 0 4px rgba(196,176,161,0.2);
+}
+
+.search-section button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  background-color: #C4B0A1; /* Beige button */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-section button:hover {
+  background-color: #B39E8C; /* Darker beige on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1.2rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E8DFD8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid #E8DFD8;
+}
+
+table th {
+  background-color: #F5EFE8; /* Very light beige header */
+  color: #4A4A4A;
+  font-weight: 500;
+}
+
+table tr:hover {
+  background-color: #FFF9F0; /* Light beige hover effect */
+}
+
+.delete-btn {
+  background-color: #D4B5B0; /* Soft pink-beige */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #C4A59E; /* Darker pink-beige */
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem 0;
+  background-color: #D4C4B7; /* Matching header */
+  color: #4A4A4A;
+  margin-top: 2.5rem;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
