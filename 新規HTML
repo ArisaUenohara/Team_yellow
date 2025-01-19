@@ -1,0 +1,170 @@
+# Save the updated HTML content without the circle and block to a file for the user to view
+html_content_updated = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f1ee;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .registration-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(74, 60, 49, 0.1);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #5d4037;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #8d6e63;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 14px;
+            padding-left: 40px;
+            border: 2px solid #e0d6cc;
+            border-radius: 12px;
+            font-size: 1em;
+            color: #5d4037;
+            background-color: #fdfcfb;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border-color: #8b7355;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8d6e63;
+        }
+
+        .next-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #5d4037;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .next-btn:hover {
+            background-color: #4a332f;
+        }
+
+        .signin-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #8d6e63;
+            font-size: 0.9em;
+        }
+
+        .signin-link a {
+            color: #5d4037;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="header">
+            <h1>新規登録</h1>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <div class="input-container">
+                    <span class="input-icon">🐣</span>
+                    <input type="text" id="name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="userid">ユーザーID</label>
+                <div class="input-container">
+                    <span class="input-icon">✉️</span>
+                    <input type="text" id="userid" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <div class="input-container">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="password" placeholder="英数字8文字以上" required>
+                </div>
+            </div>
+
+            <button type="submit" class="next-btn">登録する</button>
+
+            <div class="signin-link">
+                すでにアカウントをお持ちの方は <a href="#">ログイン</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+"""
+
+file_path = "/mnt/data/Updated_Registration_Page.html"
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(html_content_updated)
+
+file_path
