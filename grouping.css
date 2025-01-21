@@ -1,0 +1,98 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f2f5;
+}
+.container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: center;
+  width: 450px;
+}
+
+.container input {
+  background-color: #f5f5f5;
+  width: 60%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 2.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  text-align: left;
+  transition: opacity 0.3s;
+  border: none;
+  background: none;
+}
+
+.search {
+  width:15%;
+}
+button {
+  background-color: #8b7355;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  border-radius: 2.5rem;
+  border: none;
+  outline:none;
+}
+
+.group-badge {
+  background-color: #8b7355;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.username {
+  color: #333;
+  margin-bottom: 20px;
+}
+.group-members {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  text-align: left;
+}
+.group-members h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #8b7355;
+  padding-bottom: 5px;
+}
+.member-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.member-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+.member-list li:last-child {
+  border-bottom: none;
+}
+
+.mypage {
+  background-color: #8b7355;
+  color: white;
+  width: 80%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  transition: opacity 0.3s;
+}
