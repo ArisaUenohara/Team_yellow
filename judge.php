@@ -38,7 +38,7 @@ if (userClass) {
           <div id="errorMessage" class="error-message"></div>
       </div>
       <li>
-        <a class="btn" id="next" href="#q_2">質問に進む</a>
+        <a class="btn" id="next" href="#q_2" disabled>質問に進む</a>
         </li>
       </ul>
       <a class="before" href="mypage.php">マイページに戻る</a>

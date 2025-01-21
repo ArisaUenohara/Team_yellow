@@ -26,6 +26,17 @@ function navigateTo(page) {
   window.location.href = page;
 }
 
+classInput.addEventListener('input', function() {
+  const classValue = this.value.trim();
+  
+  if (classValue) {
+      next.disabled = false;
+      errorMessage.textContent = '入力してください';
+  } else {
+      next.disabled = true;
+  }
+});
+
   // 次のページへの移動処理
   links.forEach(link => {
     link.addEventListener("click", (e) => {
@@ -83,17 +94,6 @@ function navigateTo(page) {
       }
     });
   });
-
-  classInput.addEventListener('input', function() {
-    const classValue = this.value.trim();
-    
-    if (classValue) {
-        bttn.disabled = false;
-        errorMessage.textContent = '';
-    } else {
-        bttn.disabled = true;
-    }
-});
 
   function redirectToResult() {
     // 最大スコアのタイプを判定
