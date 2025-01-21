@@ -56,6 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['key'])) {
         <form method="get">
                 <input type="text" name="key" placeholder="クラス名を入力してください" value="<?php echo htmlspecialchars($_GET['key'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
                 <button class="search" type="submit">検索</button>
+                クラス名
+                <select name="class-name">
+                    <option value="data">データ分析入門</option>
+                    <option value="information">Information System Design</option>
+                    <option value="creative">Creative Confidence</option>
+                </select>
         </form>
         <h1>あなたの診断結果</h1>
         <div class="username">ユーザー：<?php echo htmlspecialchars($_SESSION['NAME'], ENT_QUOTES, 'UTF-8');?></div>

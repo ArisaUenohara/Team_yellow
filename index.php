@@ -7,7 +7,8 @@ function h($s){
 session_start();
 //ログイン済みの場合
 if (isset($_SESSION['EMAIL'])) {
-    header('Location: mypage.php');
+  echo 'ようこそ' .  h($_SESSION['EMAIL']) . "さん<br>";
+  echo "<a href='logout.php'>ログアウトはこちら。</a>";
   exit;
 }
 
@@ -216,9 +217,10 @@ if (isset($_SESSION['EMAIL'])) {
             <button type="submit" class="button">ログイン</button>
         </form>
             <div class="button-group">
-                <button onclick="location.href='userresister.php'" type="button" class="button secondary-button">新規登録</button>
+                <button onclick="location.href='userresiter.php'" type="button" class="button secondary-button">新規登録</button>
             </div>
-            <a href="reuserregister.php" class="forgot-password">パスワードをお忘れの方はこちら</a>
+            <a href="reuserresister.php" class="forgot-password">パスワードをお忘れの方はこちら</a>
+            <a href="introduction.html" class="forgot-password">グループ活動マッチングサービスって何？➡</a>
     </div>
 </body>
 
