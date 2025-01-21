@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 //クラスを保存するらしい
+  const classInput = document.getElementById('classInput');
 function navigateTo(page) {
   const classValue = classInput.value.trim();
   
