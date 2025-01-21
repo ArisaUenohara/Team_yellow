@@ -22,19 +22,21 @@ function navigateTo(page) {
       return;
   }
   
-  localStorage.setItem('userClass', classValue);
-  window.location.href = page;
+  
 }
 
-classInput.addEventListener('input', function() {
+classInput.addEventListener('change', function() {
   const classValue = this.value.trim();
   
-  if (classValue) {
+  if (classValue.length >= 3) { // 例えば3文字以上の制約を追加
       next.disabled = false;
-      errorMessage.textContent = '入力してください';
+      errorMessage.textContent = '';
   } else {
       next.disabled = true;
+      errorMessage.textContent = 'クラス名は3文字以上必要です！';
   }
+  localStorage.setItem('userClass', classValue);
+  window.location.href = page;
 });
 
   // 次のページへの移動処理
