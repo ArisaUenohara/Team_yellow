@@ -41,12 +41,13 @@ if (!isset($_SESSION['EMAIL'])) {
             font-weight: bold;
     
 }
-h2:before {
-    content: url("bear.png");
-    margin-right:20px;
 
-
+img {
+    width: 30%;
+    height: auto;
 }
+
+    
 .button-container {
     display: flex;
     flex-direction: column;
@@ -64,7 +65,7 @@ h2:before {
     background-color: #8b7355;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -78,7 +79,7 @@ h2:before {
     background-color: #a18cd1;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s;
 }   
@@ -91,6 +92,7 @@ h2:before {
 <body>
   <div class="mypage-card">
      <h2 class="title">MyPage</h2>
+     <img src="bear.png" alt="熊">
     
      <div class="button-container">
        <button class="button" onclick="location.href ='con-result.php'">結果</button>
