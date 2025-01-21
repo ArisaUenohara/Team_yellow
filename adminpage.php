@@ -56,20 +56,126 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者ページ</title>
     <style>
-        /* ... 既存のスタイルは維持 ... */
-        
-        /* テーブル関連のスタイルを完全に書き換え */
-        .user-list {
-            width: 100%;
-            margin-top: 1.2rem;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5DC;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px; /* フッターの高さ分 */
         }
 
+        /* ヘッダー部分のスタイリング */
+        .page-header {
+            background: linear-gradient(145deg, #E6D5CA, #F0E6E0);
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .page-title {
+            background: linear-gradient(145deg, #F0E6E0, #FFF5EC);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            color: #5D4037;
+            font-size: 1.8rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* 検索セクション */
+        .search-section {
+            background: #FFF9F0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 0.8rem;
+            border: 1px solid #E8DFD8;
+            border-radius: 6px;
+            flex: 1;
+            max-width: 300px;
+            font-size: 1rem;
+        }
+
+        /* ユーザー一覧セクション */
+        .content-section {
+            background: #FFF9F0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            background: linear-gradient(145deg, #F0E6E0, #FFF5EC);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            color: #5D4037;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        /* ユーザーリスト */
+        .user-list-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .user-row {
+            display: table-row;
+        }
+
+        .user-cell {
+            display: table-cell;
+            padding: 1rem;
+            border-bottom: 1px solid #E8DFD8;
+            color: #5D4037;
+        }
+
+        .user-header {
+            background: #F0E6E0;
+            font-weight: bold;
+        }
+
+        /* モバイル用カード */
         .user-card {
             background: #FFFFFF;
-            border: 1px solid #E8DFD8;
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: none;
         }
 
         .user-card-row {
@@ -77,6 +183,7 @@ try {
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
+            color: #5D4037;
         }
 
         .user-card-label {
@@ -84,64 +191,112 @@ try {
             min-width: 100px;
         }
 
-        .user-card-value {
-            flex: 1;
+        /* ボタンスタイル */
+        button, 
+        .button {
+            background: linear-gradient(145deg, #D4B5B0, #E8C7C2);
+            color: #5D4037;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .delete-form {
-            margin-top: 1rem;
-            text-align: right;
+        button:hover,
+        .button:hover {
+            background: linear-gradient(145deg, #E8C7C2, #D4B5B0);
         }
 
-        /* PCでの表示用のテーブル */
-        @media screen and (min-width: 769px) {
-            .user-list-table {
-                display: table;
-                width: 100%;
-                border-collapse: separate;
-                border-spacing: 0;
-                background-color: #FFFFFF;
-                border: 1px solid #E8DFD8;
-                border-radius: 8px;
-            }
-
-            .user-row {
-                display: table-row;
-            }
-
-            .user-cell {
-                display: table-cell;
-                padding: 1rem;
-                border-bottom: 1px solid #E8DFD8;
-            }
-
-            .user-header {
-                background-color: #F5EFE8;
-                font-weight: bold;
-            }
-
-            /* モバイル表示用の要素を非表示 */
-            .user-card {
-                display: none;
-            }
+        /* フッター */
+        .footer {
+            background: linear-gradient(145deg, #E6D5CA, #F0E6E0);
+            padding: 0.8rem;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.8rem;
+            color: #5D4037;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
         }
 
-        /* モバイルでの表示 */
+        /* レスポンシブ対応 */
         @media screen and (max-width: 768px) {
+            .page-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.2rem;
+            }
+
             .user-list-table {
                 display: none;
+            }
+
+            .user-card {
+                display: block;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input {
+                max-width: 100%;
+            }
+
+            button,
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* タブレット対応 */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            main {
+                padding: 1.5rem;
+            }
+
+            .user-list-table {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>管理者ページ</h1>
+    <header class="page-header">
+        <div class="page-title">
+            <h1>管理者ページ</h1>
+        </div>
     </header>
+
     <main>
-        <!-- 検索セクションは変更なし -->
+        <section class="search-section">
+            <form method="get" class="search-form">
+                <input type="text" name="key" class="search-input" 
+                       placeholder="コード名を入力してください" 
+                       value="<?php echo htmlspecialchars($_GET['key'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" 
+                       required>
+                <button type="submit">検索</button>
+            </form>
+            <?php if (!empty($_GET['key'])): ?>
+                <form method="GET" action="" style="margin-top: 1rem; text-align: center;">
+                    <button type="submit">リセット</button>
+                </form>
+            <?php endif; ?>
+        </section>
+
         <section class="content-section">
-            <h2>ユーザー 一覧</h2>
+            <div class="section-title">
+                <h2>ユーザー 一覧</h2>
+            </div>
+
             <?php if (!empty($result)): ?>
                 <!-- PC用テーブル表示 -->
                 <div class="user-list-table">
@@ -171,49 +326,52 @@ try {
                 </div>
 
                 <!-- モバイル用カード表示 -->
-                <div class="user-list">
-                    <?php foreach ($result as $row): ?>
-                    <div class="user-card">
-                        <div class="user-card-row">
-                            <span class="user-card-label">名前：</span>
-                            <span class="user-card-value"><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        </div>
-                        <div class="user-card-row">
-                            <span class="user-card-label">ユーザーID：</span>
-                            <span class="user-card-value"><?php echo htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        </div>
-                        <div class="user-card-row">
-                            <span class="user-card-label">診断結果：</span>
-                            <span class="user-card-value"><?php echo htmlspecialchars($row['result'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        </div>
-                        <div class="user-card-row">
-                            <span class="user-card-label">クラス：</span>
-                            <span class="user-card-value"><?php echo htmlspecialchars($row['class'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        </div>
-                        <div class="user-card-row">
-                            <span class="user-card-label">グループ：</span>
-                            <span class="user-card-value"><?php echo htmlspecialchars($row['group_number'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        </div>
-                        <div class="delete-form">
-                            <form method="post">
-                                <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8'); ?>">
-                                <button type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
-                            </form>
-                        </div>
+                <?php foreach ($result as $row): ?>
+                <div class="user-card">
+                    <div class="user-card-row">
+                        <span class="user-card-label">名前：</span>
+                        <span class="user-card-value"><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="user-card-row">
+                        <span class="user-card-label">ユーザーID：</span>
+                        <span class="user-card-value"><?php echo htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8'); ?></span>
+                    </div>
+                    <div class="user-card-row">
+                        <span class="user-card-label">診断結果：</span>
+                        <span class="user-card-value"><?php echo htmlspecialchars($row['result'], ENT_QUOTES, 'UTF-8'); ?></span>
+                    </div>
+                    <div class="user-card-row">
+                        <span class="user-card-label">クラス：</span>
+                        <span class="user-card-value"><?php echo htmlspecialchars($row['class'], ENT_QUOTES, 'UTF-8'); ?></span>
+                    </div>
+                    <div class="user-card-row">
+                        <span class="user-card-label">グループ：</span>
+                        <span class="user-card-value"><?php echo htmlspecialchars($row['group_number'], ENT_QUOTES, 'UTF-8'); ?></span>
+                    </div>
+                    <div style="text-align: right; margin-top: 1rem;">
+                        <form method="post">
+                            <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8'); ?>">
+                            <button type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
+                        </form>
+                    </div>
                 </div>
+                <?php endforeach; ?>
             <?php else: ?>
-                <p>該当するデータが見つかりません。</p>
+                <p style="text-align: center; color: #5D4037;">該当するデータが見つかりません。</p>
             <?php endif; ?>
 
-            <div class="box">
-                <!-- 既存のボタン部分は変更なし -->
+            <div style="text-align: center; margin-top: 2rem; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+                <form action="search.php" method="post">
+                    <input type="hidden" name="class" value="<?php echo htmlspecialchars($_GET['key'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    <button type="submit">グループ分け</button>
+                </form>
+                <a href="logout.php" class="button">ログアウト</a>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 管理者ページ</p>
+
+    <footer class="footer">
+        <p>&copy; 2025 管理者ページ</p>
     </footer>
 </body>
 </html>
