@@ -16,22 +16,36 @@ if (!isset($_SESSION['EMAIL'])) {
     <style>
         
       body {
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    background-color: #faf7f2;
-    min: height 100vh;
+        font-family: Arial, sans-serif;
+            background-color: #faf7f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+}
+.mypage-card {
+    background-color: white;
+            padding: 2rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
 }
 .title {
-    position:center;
-    margin-top:100px;
-    top: 100px;
-    left: 20px;
-    font-size: 24px;
-    font-weight: bold;
+    color: #8b7355;
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: bold;
     
+}
+h2:before {
+    content: url("bear.png");
+    margin-right:20px;
+
+
 }
 .button-container {
     display: flex;
@@ -54,29 +68,36 @@ if (!isset($_SESSION['EMAIL'])) {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+.button:hover {
+            opacity: 0.9;
+        } 
+.button2 {
+    width: 250px;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #a18cd1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}   
+.button2:hover {
+            opacity: 0.9;
+        } 
 
-.button2{
-    background-color: #8b7355;
-            color: white;
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin: 2rem 0;
-            transition: opacity 0.3s;
-        }
 </style>
 </head>
 <body>
-    <div class="title">マイページ</div>
+  <div class="mypage-card">
+     <h2 class="title">MyPage</h2>
     
-    <div class="button-container">
-      <button class="button" onclick="location.href ='con-result.php'">結果</button>
-      <button class="button" onclick="location.href ='grouping.php'">グループ分け</button>
-      <button class="button" onclick="location.href ='judge.php'">診断ページ</button>
-      <button class="button2" onclick="location.href ='logout.php'">ログアウト</button>
+     <div class="button-container">
+       <button class="button" onclick="location.href ='con-result.php'">結果</button>
+       <button class="button" onclick="location.href ='grouping.php'">グループ分け</button>
+       <button class="button" onclick="location.href ='judge.php'">診断ページ</button>
+       <button class="button2" onclick="location.href ='logout.php'">ログアウト</button>
+    </div>
   </div>
 </body>
 </html>
