@@ -12,6 +12,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //クラスを保存するらしい
+  const classInput = document.getElementById('classInput');
+function navigateTo(page) {
+  const classValue = classInput.value.trim();
+  
+  if (!classValue) {
+      errorMessage.textContent = 'クラス名を入力してください！';
+      return;
+  }
+  
+  localStorage.setItem('userClass', classValue);
+  window.location.href = page;
+}
+
+classInput.addEventListener('input', function() {
+  const classValue = this.value.trim();
+  
+  if (classValue) {
+      next.disabled = false;
+      errorMessage.textContent = '入力してください';
+  } else {
+      next.disabled = true;
+  }
+});
+
   // 次のページへの移動処理
   links.forEach(link => {
     link.addEventListener("click", (e) => {
