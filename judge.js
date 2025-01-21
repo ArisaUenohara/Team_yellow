@@ -80,6 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
         bttn.disabled = true;
     }
 });
+//クラスを保存するらしい
+function navigateTo(page) {
+  const classValue = classInput.value.trim();
+  
+  if (!classValue) {
+      errorMessage.textContent = 'クラス名を入力してください！';
+      return;
+  }
+  
+  localStorage.setItem('userClass', classValue);
+  window.location.href = page;
+}
 
   function redirectToResult() {
     // 最大スコアのタイプを判定
